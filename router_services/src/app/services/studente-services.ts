@@ -15,4 +15,14 @@ export class StudenteServices {
   getStudenti() {
     return this.studenti;
   }
+
+  aggiungiStudente(nome: string, classe: string, mediaVoti: number) {
+    const nuovoId =
+      this.studenti.length > 0
+        ? Math.max(...this.studenti.map(s => s.id)) + 1
+        : 1;
+
+    const nuovoStudente = { id: nuovoId, nome, classe, mediaVoti };
+    this.studenti.push(nuovoStudente);
+  }
 }

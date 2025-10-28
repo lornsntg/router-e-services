@@ -12,6 +12,12 @@ export class Pagina2 {
 
   constructor(private studentiService: StudenteServices) {}
 
+   studenti: any[] = [];
+
+  ngOnInit() {
+    this.studenti = this.studentiService.getStudenti();
+}
+
   aggiungiStudente(nome: string, classe: string, media: number) {
     this.studentiService.aggiungiStudente(nome, classe, media);
   }

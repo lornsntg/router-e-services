@@ -1,1 +1,17 @@
-<p>pagina2 works!</p>
+
+<h2>Gestione Studenti</h2>
+
+<input #nome placeholder="Nome">
+<input #classe placeholder="Classe">
+<input #media type="number" placeholder="Media voti">
+
+<button (click)="aggiungiStudente(nome.value, classe.value, media.valueAsNumber)">
+  Aggiungi Studente
+</button>
+
+<ul>
+  <!-- ✅ Usa il nome della proprietà in minuscolo -->
+  <li *ngFor="let s of studenti">
+    {{ s.id }} - {{ s.nome }} ({{ s.classe }}) → Media: {{ s.mediaVoti }}
+  </li>
+</ul>
